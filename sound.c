@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "include/sound.h"
 
-#define SOUND_CMD "aplay -q " // command line to play sound
+#define SOUND_CMD "ffplay -nodisp " // command line to play sound
 
 void make_sound(const char *file_path) {
     size_t cmdline_size = strlen(SOUND_CMD) + strlen(file_path) + 1 ; // calculate the size of the command line string
