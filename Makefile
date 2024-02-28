@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Iinclude
-LDFLAGS
+LDFLAGS=
 OBJ_DIR=obj
 BIN_DIR=bin
 
