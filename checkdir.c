@@ -40,7 +40,7 @@ void handle_events(int fd) {
 
         printf("inside the loop\n"); // debug
 
-        if(event->len & (IN_MODIFY | IN_CREATE | IN_DELETE | IN_CLOSE_WRITE)) {
+        if(event->mask & (IN_MODIFY | IN_CREATE | IN_DELETE | IN_CLOSE_WRITE)) {
             printf("inside the if\n"); // debug
             make_sound("sounds/diarrhea.mp3"); // play the sound
         }

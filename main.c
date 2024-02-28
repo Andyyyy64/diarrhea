@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "include/checkdir.h"
 
-#define WATCH_DIR "/home/andy/PROJECT/4fun/diarrhea/.git/logs/refs/heads/main" // directory to be watched
+#define WATCH_DIR "/home/andy/PROJECT/4fun/diarrhea/.git" // directory to be watched
 
 int main() {
     set_dir(WATCH_DIR); // set the directory to be watched
