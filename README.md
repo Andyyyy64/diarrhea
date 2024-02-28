@@ -1,6 +1,10 @@
 # diarrhea
 i hate mcdonalds
 
+
+https://github.com/Andyyyy64/diarrhea/assets/105579829/56080fab-621d-455b-a136-8fd0d5321bcf
+
+
 ## dependency 
 
 ```bash
