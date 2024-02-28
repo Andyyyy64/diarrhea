@@ -35,7 +35,7 @@ void handle_events(int fd) {
         return;
     }
 
-    for(ptr = buf; ptr < buf + len; ptr += sizeof(struct inotify_event) + event->len) { // i guess this is for rooping through the events
+    for(ptr = buf; ptr < buf + len; ptr += sizeof(struct inotify_event) + event->len) { // i guess this is for looping through the events
         event = (const struct inotify_event *) ptr; // set the event to the current event
 
         printf("inside the loop\n"); // debug

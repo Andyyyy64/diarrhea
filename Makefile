@@ -11,6 +11,7 @@ EXECUTABLE=$(BIN_DIR)/diarrhea
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
+	mkdir -p $(BIN_DIR)
 	$(CC) $(LDFLAGS) -o $@ $^
 
 $(OBJ_DIR)/%.o: %.c
