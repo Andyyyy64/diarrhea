@@ -1,7 +1,10 @@
 #include <stdlib.h>
-#include "include/sound.h"
+#include "include/checkdir.h"
+
+#define WATCH_DIR "/home/andy/PROJECT/4fun/diarrhea/.git" // directory to be watched
 
 int main() {
-    make_sound("sounds/diarrhea.mp3");
+    set_dir(WATCH_DIR); // set the directory to be watched
+    start_checkdir(); // start the thread to watch the directory
     return 0;
 }
