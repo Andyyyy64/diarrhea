@@ -12,6 +12,6 @@ void make_sound(const char *file_path) {
     snprintf(cmdline, cmdline_size, "%s%s", SOUND_CMD, file_path); // create the command line
 
     system(cmdline); // execute the command line
-
+    printf("Playing sound: %s, cmd: %s\n", file_path, cmdline); // debug
     free(cmdline);
 }

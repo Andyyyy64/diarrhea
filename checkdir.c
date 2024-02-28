@@ -17,6 +17,7 @@ void set_dir(const char *dir) {
         free(watchDir); // if the directory has been set, reset it
     }
     watchDir = strdup(dir); // set the directory
+    printf("watchDir: %s\n", watchDir); // debug
 }
 
 void handle_events(int fd) {
@@ -27,12 +28,18 @@ void handle_events(int fd) {
     char *ptr; // pointer for iterating through the buffer
 
     len = read(fd, buf, sizeof(buf)); // read the events from the buffer, return the bytes read
+
+    printf("read the events: %ld\n", len); // debug
+
     if(len == -1) {
         return;
     }
 
     for(ptr = buf; ptr < buf + len; ptr += sizeof(struct inotify_event) + event->len) { // i guess this is for rooping through the events
         event = (const struct inotify_event *) ptr; // set the event to the current event
+
+        printf("inside the loop\n"); // debug
+
         if(event->len & (IN_MODIFY | IN_CREATE | IN_DELETE)) {
             make_sound("sounds/diarrhea.mp3"); // play the sound
         }
