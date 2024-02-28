@@ -40,7 +40,7 @@ void handle_events(int fd) {
 
         printf("inside the loop\n"); // debug
 
-        if(event->len & (IN_MODIFY | IN_CREATE | IN_DELETE)) {
+        if(event->len & (IN_MODIFY | IN_CREATE | IN_DELETE | IN_CLOSE_WRITE)) {
             printf("inside the if\n"); // debug
             make_sound("sounds/diarrhea.mp3"); // play the sound
         }
@@ -56,7 +56,7 @@ void start_checkdir() {
     if(inotify_fd == -1) {
         return; // if inotify initialization fails, return
     }
-    watch_fd = inotify_add_watch(inotify_fd, watchDir, IN_MODIFY | IN_CREATE | IN_DELETE); // add the directory to be watched
+    watch_fd = inotify_add_watch(inotify_fd, watchDir, IN_MODIFY | IN_CREATE | IN_DELETE | IN_CLOSE_WRITE); // add the directory to be watched
     if(watch_fd == -1) {
         close(inotify_fd); // if adding the directory to be watched fails, close inotify
         return;
