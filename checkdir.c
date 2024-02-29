@@ -11,6 +11,7 @@
 static int inotify_fd; // file descriptor for inotify
 static int watch_fd; // file descriptor for the directory to be watched
 static char *watchDir = NULL; // directory to be watched
+static char *soundFile = NULL; // filepath for the sound to be played
 
 void set_dir(const char *dir) {
     if(watchDir != NULL) {
@@ -18,6 +19,14 @@ void set_dir(const char *dir) {
     }
     watchDir = strdup(dir); // set the directory
     printf("watchDir: %s\n", watchDir); // debug
+}
+
+void set_sound(const char *sound) {
+    if(soundFile != NULL) {
+        free(soundFile); // if the sound file has been set, reset it
+    }
+    soundFile = strdup(sound); // set the sound file
+    printf("soundFile: %s\n", soundFile); // debug
 }
 
 void handle_events(int fd) {
@@ -42,7 +51,7 @@ void handle_events(int fd) {
 
         if(event->mask & (IN_MODIFY | IN_CREATE | IN_DELETE | IN_CLOSE_WRITE)) {
             printf("inside the if\n"); // debug
-            make_sound("sounds/diarrhea.mp3"); // play the sound
+            make_sound(soundFile); // play the sound
         }
     }
 }
